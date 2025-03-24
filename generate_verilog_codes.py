@@ -12,28 +12,23 @@ load_dotenv()
 # =========================
 # TASK GENERATION PROMPT
 # =========================
-PROMPT_TASK = '''
+PROMPT_TASK = f'''
 **Context & Goal**:
 
-You are tasked with creating a set of advanced hardware design problems suitable for a Verilog programming contest. These problems should push participants to demonstrate in-depth knowledge of digital logic, hardware architecture, timing analysis, and verification skills.
+{os.getenv("PROMPT_TASK_CONTEXT")}
 
 **Requirements**:
 
-1. **Scope**: Problems should focus on realistic hardware modules or systems that could be found in modern digital design—covering CPU architectures, DSP engines, cryptographic accelerators, network-on-chip solutions, or advanced memory controllers.
-2. **Complexity & Sophistication**: Each problem must present multiple challenges, such as advanced pipelining, high-speed I/O protocols, concurrency issues, or protocol compliance.
-3. **Verification & Testing**: Include considerations for robust verification, suggesting how participants can simulate or prove correctness.
-4. **Innovation & Extensions**: Encourage contestants to optimize for performance, area, or power usage, and propose optional extensions that can be tackled for extra credit.
-5. **Output Format**: The final output is in JSON format with multiple ID:TASK pairs, where ID is a sequence number starting at 1 and incrementing by 1 for each task, and TASK is a markdown document containing a concise but clear problem description, including title, objectives, challenges, verification considerations, and suggested optional extensions or enhancements.
-
-Provide exactly 5 tasks in the output.
+{os.getenv("PROMPT_TASK_REQUIREMENTS")}
 '''
 
 # =========================
 # Ollama API Client
 # =========================
-def generate_with_ollama(prompt, model="deepseek-r1:14b", temperature=0.7):
+def generate_with_ollama(prompt, temperature=0.7):
     """Generate text using Ollama API with specified model."""
     ollama_url = os.getenv("OLLAMA_API_URL")
+    model = os.getenv("LLM_MODEL")
     url = f"{ollama_url}/api/generate"
     
     payload = {
@@ -203,7 +198,7 @@ def save_tasks_to_files(task_dict):
 # =========================
 def generate_programming_tasks(prompt_task):
     """Generate tasks and return saved file paths."""
-    print("Generating tasks using Ollama with deepseek-r1:14b model...")
+    print(f"Generating tasks using Ollama with {os.getenv('LLM_MODEL')} model...")
     try:
         response_text = generate_with_ollama(prompt_task)
         if not response_text:
@@ -226,33 +221,9 @@ def generate_report_for_task(task_file_path):
     with open(task_file_path, 'r') as f:
         task_content = f.read()
 
-    prompt_code = f"""
-Please provide a thorough, comprehensive report for the following task: 
-{task_content}
+    prompt_code_template = os.getenv("PROMPT_CODE")
+    prompt_code = prompt_code_template.format(task_content=task_content)
 
-Your report should be in **Markdown format** and must include the following sections:
-
-1. **Task Description**
-    - Provide the problem's aim and a concise overview of what the digital hardware component does.
-    - Explain the significance of the design approach for this component.
-2. **Verilog Codes**
-    - Present the complete Verilog module(s) for the requested hardware design.
-    - The code should be clearly commented and include any necessary `parameter` or `localparam` constructs.
-3. **Code Explanation**
-    - Explain how the module works internally, detailing the logic flow.
-    - Highlight how the design choices were made and discuss any important considerations.
-4. **Testbench**
-    - Include a Verilog testbench code that tests all critical conditions (e.g., different input patterns, edge cases).
-    - Briefly describe the testing methodology and why each test case is relevant.
-5. **Expected Output**
-    - Specify the correct outcomes for the testbench.
-    - If applicable, provide sample waveform descriptions or console output to illustrate correct behavior.
-6. **Notes**
-    - Add any additional remarks, such as limitations, optimizations, or potential enhancements.
-    - Suggest best practices for verifying or synthesizing this design.
-
-Ensure that each section is clearly labeled, and present all code blocks in proper Markdown formatting.
-"""
     try:
         response_text = generate_with_ollama(prompt_code)
         if not response_text:
