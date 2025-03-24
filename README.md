@@ -10,8 +10,7 @@ This project generates advanced hardware design problems suitable for a Verilog 
 - **generate_verilog_codes.py**: Python script to generate Verilog codes.
 - **LICENSE**: License information for the project.
 - **README.md**: This file, providing an overview of the project.
-- **tasks/**: Directory containing task files.
-- **outputs/**: Directory containing output files.
+- **DATA/**: Directory containing task files.
 
 ## Setup
 
