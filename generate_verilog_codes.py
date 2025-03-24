@@ -150,7 +150,7 @@ def sanitize_json(text):
 # =========================
 def save_tasks_to_files(task_dict):
     """Save each task to a separate markdown file."""
-    tasks_dir = Path("tasks")
+    tasks_dir = Path("DATA")
     tasks_dir.mkdir(exist_ok=True)
 
     today_str = datetime.today().strftime('%Y-%m-%d')
