@@ -1,6 +1,6 @@
 # Verilog Codes
 
-This project generates advanced hardware design problems suitable for a Verilog programming contest. The problems are designed to push participants to demonstrate in-depth knowledge of digital logic, hardware architecture, timing analysis, and verification skills.
+This project generates advanced hardware design problems suitable for a Verilog programming contest. The problems are designed to push participants to demonstrate in-depth knowledge of digital logic, hardware architecture, timing analysis, and verification skills. The logs produced by EDA tools can be found in `RTL` folder.
 
 
 ## Files and Directories
