@@ -1,0 +1,1 @@
+s1(25Mar2025:16:28:34):  xrun -f filelist.f -mcl 4 -incdir /usr/cad/synopsys/synthesis/cur/dw/sim_ver/ -loadpli1 debpli:novas_pli_boot -debug -notimingchecks -define RTL -define CORRECT 

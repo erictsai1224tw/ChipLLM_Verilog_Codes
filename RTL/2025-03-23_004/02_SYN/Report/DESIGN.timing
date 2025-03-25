@@ -1,0 +1,29 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 3
+Design : DESIGN
+Version: T-2022.03
+Date   : Tue Mar 25 16:29:24 2025
+****************************************
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: top
+
+  Startpoint: data_mem_write_enable (internal pin)
+  Endpoint: data_mem_write_enable
+            (output port clocked by clk)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  data_mem_write_enable (out)              0.00       0.00 r
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

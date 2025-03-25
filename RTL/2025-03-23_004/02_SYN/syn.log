@@ -1,0 +1,1840 @@
+#======================================================
+#
+# Synopsys Synthesis Scripts (Design Vision dctcl mode)
+#
+#======================================================
+#======================================================
+# (A) Global Parameters
+#======================================================
+set DESIGN "DESIGN"
+DESIGN
+set CYCLE 10
+10
+set INPUT_DLY [expr 0.5*$CYCLE]
+5.0
+set OUTPUT_DLY [expr 0.5*$CYCLE]
+5.0
+#======================================================
+# (B) Read RTL Code
+#======================================================
+# (B-1) analyze + elaborate
+set hdlin_auto_save_templates TRUE
+TRUE
+analyze -f sverilog $DESIGN\.v 
+Running PRESTO HDLC
+Compiling source file ../01_RTL/DESIGN.v
+Warning:  ../01_RTL/DESIGN.v:145: The statements in initial blocks are ignored. (VER-281)
+Presto compilation completed successfully.
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ff1p98vm40c.db'
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_tt1p8v25c.db'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/standard.sldb'
+1
+elaborate $DESIGN  
+Loading db file '/usr/cad/synopsys/synthesis/2022.03/libraries/syn/gtech.db'
+Loading db file '/usr/cad/synopsys/synthesis/2022.03/libraries/syn/standard.sldb'
+  Loading link library 'fsa0m_a_generic_core_ss1p62v125c'
+  Loading link library 'fsa0m_a_generic_core_ff1p98vm40c'
+  Loading link library 'fsa0m_a_t33_generic_io_ss1p62v125c'
+  Loading link library 'fsa0m_a_t33_generic_io_tt1p8v25c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Warning:  ../01_RTL/DESIGN.v:97: 'Case' statement is full and has only one nontrivial branch; it will be inlined. (ELAB-335)
+
+Inferred memory devices in process
+        in routine DESIGN line 62 in file
+                '../01_RTL/DESIGN.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   if_id_instr_reg   | Flip-flop |  10   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine DESIGN line 86 in file
+                '../01_RTL/DESIGN.v'.
+==================================================================================
+|     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================
+|    id_ex_instr_reg     | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+| id_ex_reg_rs2_data_reg | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+==================================================================================
+
+Inferred memory devices in process
+        in routine DESIGN line 103 in file
+                '../01_RTL/DESIGN.v'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+| ex_mem_alu_result_reg | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+=================================================================================
+
+Inferred memory devices in process
+        in routine DESIGN line 110 in file
+                '../01_RTL/DESIGN.v'.
+=============================================================================
+|     Register Name     | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+=============================================================================
+| data_mem_data_out_reg | Latch |  32   |  Y  | N  | N  | N  | -  | -  | -  |
+=============================================================================
+
+Inferred memory devices in process
+        in routine DESIGN line 126 in file
+                '../01_RTL/DESIGN.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   mem_wb_data_reg   | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine DESIGN line 138 in file
+                '../01_RTL/DESIGN.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|  register_file_reg  | Flip-flop | 1024  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|    DESIGN/75     |   32   |   32    |      5       |
+======================================================
+Warning:  ../01_RTL/DESIGN.v:43: Netlist for always_ff block does not contain a flip-flop. (ELAB-976)
+Warning:  ../01_RTL/DESIGN.v:110: Netlist for always_comb block contains a latch. (ELAB-974)
+Presto compilation completed successfully. (DESIGN)
+Elaborated 1 design.
+Current design is now 'DESIGN'.
+1
+# (B-2) read_sverilog
+#read_sverilog $DESIGN\.v
+# (B-3) set current design
+current_design $DESIGN
+Current design is 'DESIGN'.
+{DESIGN}
+link
+
+  Linking design 'DESIGN'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  DESIGN                      /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/ChipLLM/Verilog_Codes/RTL/2025-03-23_004/02_SYN/DESIGN.db
+  fsa0m_a_generic_core_ss1p62v125c (library) /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db
+  fsa0m_a_generic_core_ff1p98vm40c (library) /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ff1p98vm40c.db
+  fsa0m_a_t33_generic_io_ss1p62v125c (library) /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_ss1p62v125c.db
+  fsa0m_a_t33_generic_io_tt1p8v25c (library) /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_tt1p8v25c.db
+  dw_foundation.sldb (library) /usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb
+
+1
+#======================================================
+#  (C) Global Setting
+#======================================================
+set_wire_load_mode top
+1
+# set_operating_conditions -max WCCOM -min BCCOM
+# set_wire_load_model -name umc18_wl10 -library slow
+#======================================================
+#  (D) Set Design Constraints
+#======================================================
+# (D-1) Setting Clock Constraints
+create_clock -name clk -period $CYCLE [get_ports clk] 
+1
+set_dont_touch_network             [get_clocks clk]
+1
+set_fix_hold                       [get_clocks clk]
+1
+set_clock_uncertainty       0.1    [get_clocks clk]
+1
+# set_clock_latency   -source 0      [get_clocks clk]
+# set_clock_latency           1      [get_clocks clk] 
+set_input_transition        0.5    [all_inputs] 
+1
+set_clock_transition        0.1    [all_clocks] 
+1
+# (D-2) Setting in/out Constraints
+set_input_delay   -max  $INPUT_DLY  -clock clk   [all_inputs] ;  # set_up time check 
+1
+set_input_delay   -min  0           -clock clk   [all_inputs] ;  # hold   time check 
+1
+set_output_delay  -max  $OUTPUT_DLY -clock clk   [all_outputs] ; # set_up time check 
+1
+set_output_delay  -min  0           -clock clk   [all_outputs] ; # hold   time check 
+1
+set_input_delay 0 -clock clk clk
+1
+set_input_delay 0 -clock clk rst_n
+Warning: Can't find object 'rst_n' in design 'DESIGN'. (UID-95)
+Error: Value for list 'port_pin_list' must have 1 elements. (CMD-036)
+0
+#set_max_delay $CYCLE -from [all_inputs] -to [all_outputs]
+# (D-3) Setting Design Environment
+# set_driving_cell -library umc18io3v5v_slow -lib_cell P2C    -pin {Y}  [get_ports clk]
+# set_driving_cell -library umc18io3v5v_slow -lib_cell P2C    -pin {Y}  [remove_from_collection [all_inputs] [get_ports clk]]
+# set_load  [load_of "umc18io3v5v_slow/P8C/A"]       [all_outputs] ; # ~= 0.038
+set_load 0.05 [all_outputs]
+1
+# (D-4) Setting DRC Constraint
+#set_max_delay           0     ; # Optimize delay max effort                 
+#set_max_area            0      ; # Optimize area max effort           
+set_max_transition      3       [all_inputs]   ; # U18 LUT Max Transition Value  
+1
+set_max_capacitance     0.15    [all_inputs]   ; # U18 LUT Max Capacitance Value
+1
+set_max_fanout          10      [all_inputs]
+1
+# set_dont_use slow/JKFF*
+#set_dont_touch [get_cells core_reg_macro]
+#set hdlin_ff_always_sync_set_reset true
+# (D-5) Report Clock skew
+report_clock -skew clk
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Updating graph... (UID-83)
+Warning: Design 'DESIGN' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Updating design information... (UID-85)
+Warning: Design 'DESIGN' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : clock_skew
+Design : DESIGN
+Version: T-2022.03
+Date   : Tue Mar 25 16:28:55 2025
+****************************************
+
+                 Rise      Fall  Min Rise  Min fall        Uncertainty
+Object          Delay     Delay     Delay     Delay     Plus      Minus
+--------------------------------------------------------------------------------
+clk                 -         -         -         -      0.10      0.10
+
+                 Max Transition      Min Transition
+Object           Rise      Fall      Rise      Fall
+-------------------------------------------------------
+clk              0.10      0.10      0.10      0.10
+1
+check_timing
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Warning: The following end-points are not constrained for maximum delay.
+
+End point
+---------------
+data_mem_data_out[0]
+data_mem_data_out[1]
+data_mem_data_out[2]
+data_mem_data_out[3]
+data_mem_data_out[4]
+data_mem_data_out[5]
+data_mem_data_out[6]
+data_mem_data_out[7]
+data_mem_data_out[8]
+data_mem_data_out[9]
+data_mem_data_out[10]
+data_mem_data_out[11]
+data_mem_data_out[12]
+data_mem_data_out[13]
+data_mem_data_out[14]
+data_mem_data_out[15]
+data_mem_data_out[16]
+data_mem_data_out[17]
+data_mem_data_out[18]
+data_mem_data_out[19]
+data_mem_data_out[20]
+data_mem_data_out[21]
+data_mem_data_out[22]
+data_mem_data_out[23]
+data_mem_data_out[24]
+data_mem_data_out[25]
+data_mem_data_out[26]
+data_mem_data_out[27]
+data_mem_data_out[28]
+data_mem_data_out[29]
+data_mem_data_out[30]
+data_mem_data_out[31]
+data_mem_data_out_reg[0]/data_in
+data_mem_data_out_reg[1]/data_in
+data_mem_data_out_reg[2]/data_in
+data_mem_data_out_reg[3]/data_in
+data_mem_data_out_reg[4]/data_in
+data_mem_data_out_reg[5]/data_in
+data_mem_data_out_reg[6]/data_in
+data_mem_data_out_reg[7]/data_in
+data_mem_data_out_reg[8]/data_in
+data_mem_data_out_reg[9]/data_in
+data_mem_data_out_reg[10]/data_in
+data_mem_data_out_reg[11]/data_in
+data_mem_data_out_reg[12]/data_in
+data_mem_data_out_reg[13]/data_in
+data_mem_data_out_reg[14]/data_in
+data_mem_data_out_reg[15]/data_in
+data_mem_data_out_reg[16]/data_in
+data_mem_data_out_reg[17]/data_in
+data_mem_data_out_reg[18]/data_in
+data_mem_data_out_reg[19]/data_in
+data_mem_data_out_reg[20]/data_in
+data_mem_data_out_reg[21]/data_in
+data_mem_data_out_reg[22]/data_in
+data_mem_data_out_reg[23]/data_in
+data_mem_data_out_reg[24]/data_in
+data_mem_data_out_reg[25]/data_in
+data_mem_data_out_reg[26]/data_in
+data_mem_data_out_reg[27]/data_in
+data_mem_data_out_reg[28]/data_in
+data_mem_data_out_reg[29]/data_in
+data_mem_data_out_reg[30]/data_in
+data_mem_data_out_reg[31]/data_in
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1
+#======================================================
+#  (E) Optimization
+#======================================================
+check_design > Report/$DESIGN\.check
+set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
+1
+set_fix_hold [all_clocks]
+1
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 4 cores. (OPT-1500)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | S-2021.06-DWBB_202106.0 |     *     |
+| Licensed DW Building Blocks        | S-2021.06-DWBB_202106.0 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler NXT WLM                                                           |
+| Comand line  | compile_ultra                                                                     |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 1241                                   |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 1167                                   |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch cells                              | 11                                     |
+| Number of Dont Touch nets                               | 1                                      |
+| Number of size only cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+----------------------------------------------------------------------------------------------------
+| Variables                                               | Value                                  |
+----------------------------------------------------------------------------------------------------
+| set_fix_multiple_port_nets                              | -all -buffer_constants                 |
+====================================================================================================
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 24 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'DESIGN'
+Information: The register 'ex_mem_alu_result_reg[0]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[1]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[2]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[3]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[4]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[5]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[6]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[7]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[8]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[9]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[10]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[11]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[12]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[13]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[14]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[15]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[16]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[17]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[18]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[19]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[20]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[21]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[22]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[23]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[24]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[25]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[26]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[27]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[28]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[29]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[30]' will be removed. (OPT-1207)
+Information: The register 'ex_mem_alu_result_reg[31]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[0]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[1]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[2]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[3]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[4]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[5]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[6]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[7]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[8]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[9]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[10]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[11]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[12]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[13]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[14]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[15]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[16]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[17]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[18]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[19]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[20]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[21]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[22]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[23]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[24]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[25]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[26]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[27]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[28]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[29]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[30]' will be removed. (OPT-1207)
+Information: The register 'id_ex_reg_rs2_data_reg[31]' will be removed. (OPT-1207)
+Information: The register 'id_ex_instr_reg[7]' will be removed. (OPT-1207)
+Information: The register 'if_id_instr_reg[7]' will be removed. (OPT-1207)
+Information: The register 'id_ex_instr_reg[8]' will be removed. (OPT-1207)
+Information: The register 'if_id_instr_reg[8]' will be removed. (OPT-1207)
+Information: The register 'id_ex_instr_reg[9]' will be removed. (OPT-1207)
+Information: The register 'if_id_instr_reg[9]' will be removed. (OPT-1207)
+Information: The register 'id_ex_instr_reg[10]' will be removed. (OPT-1207)
+Information: The register 'if_id_instr_reg[10]' will be removed. (OPT-1207)
+Information: The register 'id_ex_instr_reg[11]' will be removed. (OPT-1207)
+Information: The register 'if_id_instr_reg[11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[0][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[1][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[2][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[3][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[4][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[5][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[6][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[7][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[8][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[9][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[10][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[11][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[12][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[13][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[14][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[15][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[16][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[17][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[18][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[19][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[20][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[21][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[22][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[23][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[24][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[25][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[26][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[27][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[28][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[29][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[30][31]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][0]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[0]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][1]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[1]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][2]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[2]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][3]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[3]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][4]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[4]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][5]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[5]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][6]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[6]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][7]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[7]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][8]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[8]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][9]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[9]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][10]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[10]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][11]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[11]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][12]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[12]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][13]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[13]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][14]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[14]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][15]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[15]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][16]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[16]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][17]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[17]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][18]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[18]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][19]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[19]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][20]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[20]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][21]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[21]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][22]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[22]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][23]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[23]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][24]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[24]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][25]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[25]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][26]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[26]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][27]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[27]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][28]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[28]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][29]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[29]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][30]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[30]' will be removed. (OPT-1207)
+Information: The register 'register_file_reg[31][31]' will be removed. (OPT-1207)
+Information: The register 'mem_wb_data_reg[31]' will be removed. (OPT-1207)
+
+  Loading target library 'fsa0m_a_generic_core_ff1p98vm40c'
+  Loading target library 'fsa0m_a_t33_generic_io_ss1p62v125c'
+  Loading target library 'fsa0m_a_t33_generic_io_tt1p8v25c'
+Loaded alib file './alib-52/fsa0m_a_generic_core_ss1p62v125c.db.alib'
+Loaded alib file './alib-52/fsa0m_a_generic_core_ff1p98vm40c.db.alib'
+Loaded alib file './alib-52/fsa0m_a_t33_generic_io_ss1p62v125c.db.alib' (placeholder)
+Loaded alib file './alib-52/fsa0m_a_t33_generic_io_tt1p8v25c.db.alib' (placeholder)
+Warning: Operating condition WCCOM set on design DESIGN has different process,
+voltage and temperatures parameters than the parameters at which target library 
+fsa0m_a_generic_core_ff1p98vm40c is characterized. Delays may be inaccurate as a result. (OPT-998)
+  Building model 'DW01_NAND2'
+Information: Ungrouping 0 of 1 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'DESIGN'
+Information: The register 'if_id_instr_reg[20]' will be removed. (OPT-1207)
+Information: The register 'if_id_instr_reg[21]' will be removed. (OPT-1207)
+Information: The register 'if_id_instr_reg[22]' will be removed. (OPT-1207)
+Information: The register 'if_id_instr_reg[23]' will be removed. (OPT-1207)
+Information: The register 'if_id_instr_reg[24]' will be removed. (OPT-1207)
+Information: The register 'data_mem_data_out_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[6]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[7]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[15]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[16]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[17]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[18]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[19]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[20]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[21]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[22]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[23]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[24]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[25]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[26]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[27]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[28]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[29]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[30]' is a constant and will be removed. (OPT-1206)
+Information: The register 'data_mem_data_out_reg[31]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'TIE1' in the library 'fsa0m_a_generic_core_ss1p62v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIE0' in the library 'fsa0m_a_generic_core_ss1p62v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'BHD1' in the library 'fsa0m_a_generic_core_ss1p62v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+Information: There is no timing violation in design DESIGN. Delay-based auto_ungroup will not be performed. (OPT-780)
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:25       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:25       9.4      0.00       0.0       0.0                              0.0100      0.00  
+
+  Beginning Constant Register Removal
+  -----------------------------------
+    0:00:25       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:25       9.4      0.00       0.0       0.0                              0.0100      0.00  
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:25       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:25       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:25       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+    0:00:26       9.4      0.00       0.0       0.0                              0.0100      0.00  
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26       0.0      0.00       0.0       0.0                              0.0000      0.00  
+    0:00:26     409.3      0.00       0.0       0.0                           24819.2090      0.00  
+    0:00:26     409.3      0.00       0.0       0.0                           24819.2090      0.00  
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ff1p98vm40c.db'
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_tt1p8v25c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+  Loading target library 'fsa0m_a_generic_core_ff1p98vm40c'
+  Loading target library 'fsa0m_a_t33_generic_io_ss1p62v125c'
+  Loading target library 'fsa0m_a_t33_generic_io_tt1p8v25c'
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+#uniquify
+#compile
+#======================================================
+#  (F) Output Reports 
+#======================================================
+report_design  >  Report/$DESIGN\.design
+report_resource >  Report/$DESIGN\.resource
+report_timing -max_paths 3 >  Report/$DESIGN\.timing
+report_area >  Report/$DESIGN\.area
+report_power > Report/$DESIGN\.power
+report_clock > Report/$DESIGN\.clock
+report_port >  Report/$DESIGN\.port
+report_power >  Report/$DESIGN\.power
+#report_reference > Report/$DESIGN\.reference
+#======================================================
+#  (G) Change Naming Rule
+#======================================================
+set bus_inference_style "%s\[%d\]"
+%s[%d]
+set bus_naming_style "%s\[%d\]"
+%s[%d]
+set hdlout_internal_busses true
+true
+change_names -hierarchy -rule verilog
+1
+define_name_rules name_rule -allowed "a-z A-Z 0-9 _" -max_length 255 -type cell
+1
+define_name_rules name_rule -allowed "a-z A-Z 0-9 _[]" -max_length 255 -type net
+1
+define_name_rules name_rule -map {{"\\*cell\\*" "cell"}}
+1
+define_name_rules name_rule -case_insensitive
+1
+change_names -hierarchy -rules name_rule
+1
+#======================================================
+#  (H) Output Results
+#======================================================
+set verilogout_higher_designs_first true
+true
+write -format verilog -output Netlist/$DESIGN\_SYN.v -hierarchy
+Writing verilog file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/ChipLLM/Verilog_Codes/RTL/2025-03-23_004/02_SYN/Netlist/DESIGN_SYN.v'.
+1
+write -format ddc     -hierarchy -output $DESIGN\_SYN.ddc
+Writing ddc file 'DESIGN_SYN.ddc'.
+1
+write_sdf -version 3.0 -context verilog -load_delay cell Netlist/$DESIGN\_SYN.sdf -significant_digits 6
+Information: Writing timing information to file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/ChipLLM/Verilog_Codes/RTL/2025-03-23_004/02_SYN/Netlist/DESIGN_SYN.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write_sdc Netlist/$DESIGN\_SYN.sdc
+1
+#======================================================
+#  (I) Finish and Quit
+#======================================================
+report_area
+ 
+****************************************
+Report : area
+Design : DESIGN
+Version: T-2022.03
+Date   : Tue Mar 25 16:29:24 2025
+****************************************
+
+Library(s) Used:
+
+    fsa0m_a_generic_core_ss1p62v125c (File: /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db)
+
+Number of ports:                          131
+Number of nets:                            65
+Number of cells:                           65
+Number of combinational cells:             65
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         64
+Number of references:                       2
+
+Combinational area:                409.348796
+Buf/Inv area:                      399.974396
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                   409.348796
+Total area:                 undefined
+1
+report_timing 
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : DESIGN
+Version: T-2022.03
+Date   : Tue Mar 25 16:29:24 2025
+****************************************
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: top
+
+  Startpoint: data_mem_write_enable (internal pin)
+  Endpoint: data_mem_write_enable
+            (output port clocked by clk)
+  Path Group: (none)
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  data_mem_write_enable (out)              0.00       0.00 r
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
+exit
+
+Memory usage for this session 366 Mbytes.
+Memory usage for this session including child processes 528 Mbytes.
+CPU usage for this session 30 seconds ( 0.01 hours ).
+Elapsed time for this session 33 seconds ( 0.01 hours ).
+
+Thank you...
+

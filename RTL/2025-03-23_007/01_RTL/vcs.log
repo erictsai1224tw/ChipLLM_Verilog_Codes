@@ -1,0 +1,88 @@
+Command: vcs -timescale=1ns/1fs -j4 -sverilog +v2k -full64 -Mupdate -R -debug_access+all \
+-y /usr/cad/synopsys/synthesis/cur/dw/sim_ver/ +libext+.v -f filelist.f -o simv -l \
+vcs.log -P /usr/cad/synopsys/verdi/2019.06//share/PLI/VCS/linux64/novas.tab /usr/cad/synopsys/verdi/2019.06//share/PLI/VCS/linux64/pli.a \
++define+RTL +define+SAMPLE +notimingchecks
+*** Using c compiler gcc instead of cc ...
+                         Chronologic VCS (TM)
+         Version T-2022.06_Full64 -- Tue Mar 25 17:33:34 2025
+
+                    Copyright (c) 1991 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Parsing design file 'TESTBED.v'
+Parsing included file 'PATTERN.v'.
+Back to file 'TESTBED.v'.
+Parsing included file 'DESIGN.v'.
+Back to file 'TESTBED.v'.
+Top Level Modules:
+       DESIGN
+       fft_8point
+       TESTBED
+TimeScale is 1 ns / 10 ps
+
+Error-[UPIMI-E] Undefined port in module instantiation
+TESTBED.v, 74
+  Port "clk" is not defined in module 'butterfly' defined in "DESIGN.v", 25
+  Module instance: butterfly #(.DATA_WIDTH(DATA_WIDTH), 
+  .TWIDDLE_WIDTH(TWIDDLE_WIDTH)) u_DESIGN( .clk (clk),  .rst (rst),  
+  .data_in_real (data_in_real),  .data_in_imag (data_in_ ...
+
+
+Error-[UPIMI-E] Undefined port in module instantiation
+TESTBED.v, 74
+  Port "rst" is not defined in module 'butterfly' defined in "DESIGN.v", 25
+  Module instance: butterfly #(.DATA_WIDTH(DATA_WIDTH), 
+  .TWIDDLE_WIDTH(TWIDDLE_WIDTH)) u_DESIGN( .clk (clk),  .rst (rst),  
+  .data_in_real (data_in_real),  .data_in_imag (data_in_ ...
+
+
+Error-[UPIMI-E] Undefined port in module instantiation
+TESTBED.v, 74
+  Port "data_in_real" is not defined in module 'butterfly' defined in 
+  "DESIGN.v", 25
+  Module instance: butterfly #(.DATA_WIDTH(DATA_WIDTH), 
+  .TWIDDLE_WIDTH(TWIDDLE_WIDTH)) u_DESIGN( .clk (clk),  .rst (rst),  
+  .data_in_real (data_in_real),  .data_in_imag (data_in_ ...
+
+
+Error-[UPIMI-E] Undefined port in module instantiation
+TESTBED.v, 74
+  Port "data_in_imag" is not defined in module 'butterfly' defined in 
+  "DESIGN.v", 25
+  Module instance: butterfly #(.DATA_WIDTH(DATA_WIDTH), 
+  .TWIDDLE_WIDTH(TWIDDLE_WIDTH)) u_DESIGN( .clk (clk),  .rst (rst),  
+  .data_in_real (data_in_real),  .data_in_imag (data_in_ ...
+
+
+Error-[UPIMI-E] Undefined port in module instantiation
+TESTBED.v, 74
+  Port "data_out_real" is not defined in module 'butterfly' defined in 
+  "DESIGN.v", 25
+  Module instance: butterfly #(.DATA_WIDTH(DATA_WIDTH), 
+  .TWIDDLE_WIDTH(TWIDDLE_WIDTH)) u_DESIGN( .clk (clk),  .rst (rst),  
+  .data_in_real (data_in_real),  .data_in_imag (data_in_ ...
+
+
+Error-[UPIMI-E] Undefined port in module instantiation
+TESTBED.v, 74
+  Port "data_out_imag" is not defined in module 'butterfly' defined in 
+  "DESIGN.v", 25
+  Module instance: butterfly #(.DATA_WIDTH(DATA_WIDTH), 
+  .TWIDDLE_WIDTH(TWIDDLE_WIDTH)) u_DESIGN( .clk (clk),  .rst (rst),  
+  .data_in_real (data_in_real),  .data_in_imag (data_in_ ...
+
+6 errors
+CPU time: .251 seconds to compile

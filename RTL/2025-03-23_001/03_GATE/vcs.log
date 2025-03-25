@@ -1,0 +1,183 @@
+Command: vcs -timescale=1ns/1fs -j4 -sverilog +v2k -full64 -Mupdate -R -debug_access+all \
+-f filelist.f -o simv -l vcs.log -P /usr/cad/synopsys/verdi/2019.06//share/PLI/VCS/linux64/novas.tab \
+/usr/cad/synopsys/verdi/2019.06//share/PLI/VCS/linux64/pli.a -v /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/Verilog/fsa0m_a_generic_core_30.lib.src \
++define+FUNC +define+GATE +neg_tchk +nowarnNTCDSN
+*** Using c compiler gcc instead of cc ...
+                         Chronologic VCS (TM)
+         Version T-2022.06_Full64 -- Tue Mar 25 15:56:27 2025
+
+                    Copyright (c) 1991 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Parsing design file 'TESTBED.v'
+Parsing included file 'PATTERN.v'.
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 15
+  Redeclaration of ANSI ports not allowed for 'i_data', this will be an error 
+  in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 16
+  Redeclaration of ANSI ports not allowed for 'o_encoded', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 17
+  Redeclaration of ANSI ports not allowed for 'o_valid', this will be an error
+  in a future release
+
+Back to file 'TESTBED.v'.
+Parsing included file 'DESIGN_SYN.v'.
+Back to file 'TESTBED.v'.
+Parsing library file '/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/Verilog/fsa0m_a_generic_core_30.lib.src'
+Top Level Modules:
+       TESTBED
+TimeScale is 10 ps / 1 ps
+
+Warning-[PCWM-W] Port connection width mismatch
+TESTBED.v, 47
+"PATTERN u_PATTERN( .i_data (out_data),  .o_encoded (o_encoded),  .o_valid (o_valid));"
+  The following 1-bit expression is connected to 8-bit port "i_data" of module
+  "PATTERN", instance "u_PATTERN".
+  Expression: out_data
+  Instantiated module defined at: "PATTERN.v", 5
+  Use +lint=PCWM for more details.
+
+
+Warning-[PCWM-W] Port connection width mismatch
+TESTBED.v, 55
+"DESIGN u_DESIGN( .i_data (out_data),  .o_encoded (o_encoded),  .o_valid (o_valid));"
+  The following 1-bit expression is connected to 8-bit port "i_data" of module
+  "DESIGN", instance "u_DESIGN".
+  Expression: out_data
+  Instantiated module defined at: "DESIGN_SYN.v", 8
+  Use +lint=PCWM for more details.
+
+
+   ***   $sdf_annotate() version 1.2R
+   ***    SDF file: "DESIGN_SYN.sdf"
+   ***    Annotation scope: TESTBED.u_DESIGN
+   ***    No MTM selection argument specified
+   ***    No SCALE FACTORS argument specified
+   ***    No SCALE TYPE argument specified
+   ***    MTM selection defaulted to "TOOL_CONTROL":
+               (+typdelays compiled, TYPICAL delays selected)
+   ***    SCALE FACTORS defaulted to "1.0:1.0:1.0":
+   ***    SCALE TYPE defaulted to: "FROM_MTM"
+   ***    Turnoff delay: "FROM_FILE"
+   ***    Approximation (mipd) policy: "MAXIMUM"
+
+   ***    SDF annotation begin: Tue Mar 25 15:56:28 2025
+
+
+SDF Info: +pulse_r/100, +pulse_e/100 in effect
+
+          Total errors: 0
+          Total warnings: 0
+   ***    SDF annotation completed: Tue Mar 25 15:56:28 2025
+
+
+Starting vcs inline pass...
+
+Note-[VCS_PARAL] Parallel code-gen enabled
+  VCS is running with parallel code generation(-j)...
+
+10 modules and 0 UDP read.
+recompiling module PATTERN
+recompiling module MOAI1S
+recompiling module DESIGN
+recompiling module OAI12HS
+recompiling module TESTBED
+recompiling module ND3S
+recompiling module ND2S
+recompiling module NR2
+recompiling module OR2S
+recompiling module INV1S
+All of 10 modules done
+make[1]: Entering directory `/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/ChipLLM/Verilog_Codes/RTL/2025-03-23_001/03_GATE/csrc' \
+
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir \
+-Wl,-rpath=/usr/cad/synopsys/vcs/2022.06/linux64/lib -L/usr/cad/synopsys/vcs/2022.06/linux64/lib \
+-Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _4689_archive_1.so \
+_4706_archive_1.so  SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o \
+rmar_llvm_0_0.o           -lvirsim -lerrorinf -lsnpsmalloc -lvfs /usr/cad/synopsys/verdi/2019.06//share/PLI/VCS/linux64/pli.a \
+-lvcsnew -lsimprofile -luclinative /usr/cad/synopsys/vcs/2022.06/linux64/lib/vcs_tls.o \
+-Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive        _vcs_pli_stub_.o   \
+/usr/cad/synopsys/vcs/2022.06/linux64/lib/vcs_save_restore_new.o /usr/cad/synopsys/verdi/2019.06//share/PLI/VCS/LINUX64/pli.a \
+-ldl -lm  -lc -lpthread -ldl 
+../simv up to date
+make[1]: Leaving directory `/RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/ChipLLM/Verilog_Codes/RTL/2025-03-23_001/03_GATE/csrc' \
+
+Command: /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/ChipLLM/Verilog_Codes/RTL/2025-03-23_001/03_GATE/./simv +v2k -a vcs.log +define+FUNC +define+GATE +neg_tchk +nowarnNTCDSN
+Chronologic VCS simulator copyright 1991-2022
+Contains Synopsys proprietary information.
+Compiler version T-2022.06_Full64; Runtime version T-2022.06_Full64;  Mar 25 15:56 2025
+Doing SDF annotation ...... Done
+*Verdi* Loading libsscore_vcs201906.so
+FSDB Dumper for VCS, Release Verdi_P-2019.06, Linux x86_64/64bit, 05/26/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+***********************************************************************
+*  ERROR -                                                            *
+*  The simulator version is newer than the FSDB dumper version which  *
+*  may cause abnormal behavior, please contact Synopsys support for   *
+*  assistance.                                                        *
+***********************************************************************
+*Verdi* : Create FSDB file 'DESIGN_SYN.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : Enable +mda dumping.
+*Verdi* : End of traversing.
+Test Case 1: i_data = 00000000, o_encoded = 0, o_valid = 0
+Test Case 2: i_data = 10000000, o_encoded = 0, o_valid = 0
+"PATTERN.v", 45: TESTBED.u_PATTERN.unnamed$$_2: started at 20000ps failed at 20000ps
+	Offending '(o_valid == 1'b1)'
+Error: "PATTERN.v", 45: TESTBED.u_PATTERN.unnamed$$_2: at time 20000 ps
+Test Case 2 Failed: o_valid
+"PATTERN.v", 46: TESTBED.u_PATTERN.unnamed$$_3: started at 20000ps failed at 20000ps
+	Offending '(o_encoded == (WIDTH - 1))'
+Error: "PATTERN.v", 46: TESTBED.u_PATTERN.unnamed$$_3: at time 20000 ps
+Test Case 2 Failed: o_encoded
+Test Case 3: i_data = 00000001, o_encoded = 0, o_valid = 1
+Test Case 4: i_data = 10000001, o_encoded = 0, o_valid = 1
+"PATTERN.v", 61: TESTBED.u_PATTERN.unnamed$$_7: started at 40000ps failed at 40000ps
+	Offending '(o_encoded == (WIDTH - 1))'
+Error: "PATTERN.v", 61: TESTBED.u_PATTERN.unnamed$$_7: at time 40000 ps
+Test Case 4 Failed: o_encoded
+Test Case 5: i_data = 01011010, o_encoded = 0, o_valid = 0
+"PATTERN.v", 67: TESTBED.u_PATTERN.unnamed$$_8: started at 50000ps failed at 50000ps
+	Offending '(o_valid == 1'b1)'
+Error: "PATTERN.v", 67: TESTBED.u_PATTERN.unnamed$$_8: at time 50000 ps
+Test Case 5 Failed: o_valid
+"PATTERN.v", 68: TESTBED.u_PATTERN.unnamed$$_9: started at 50000ps failed at 50000ps
+	Offending '(o_encoded == 11)'
+Error: "PATTERN.v", 68: TESTBED.u_PATTERN.unnamed$$_9: at time 50000 ps
+Test Case 5 Failed: o_encoded
+Test Case 6: i_data = 10000001, o_encoded = 0, o_valid = 1
+"PATTERN.v", 75: TESTBED.u_PATTERN.unnamed$$_11: started at 60000ps failed at 60000ps
+	Offending '(o_encoded == 3'h7)'
+Error: "PATTERN.v", 75: TESTBED.u_PATTERN.unnamed$$_11: at time 60000 ps
+Test Case 6 Failed: o_encoded
+$finish called from file "PATTERN.v", line 79.
+$finish at simulation time                60000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 60000 ps
+CPU Time:      0.380 seconds;       Data structure size:   0.0Mb
+Tue Mar 25 15:56:31 2025
+CPU time: .575 seconds to compile + .284 seconds to elab + .560 seconds to link + .422 seconds in simulation

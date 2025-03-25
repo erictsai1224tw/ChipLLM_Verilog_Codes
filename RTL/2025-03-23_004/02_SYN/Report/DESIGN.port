@@ -1,0 +1,278 @@
+ 
+****************************************
+Report : port
+Design : DESIGN
+Version: T-2022.03
+Date   : Tue Mar 25 16:29:24 2025
+****************************************
+
+
+
+Attributes:
+    d - dont_touch_network
+
+                       Pin      Wire     Max     Max     Connection
+Port           Dir     Load     Load     Trans   Cap     Class      Attrs
+--------------------------------------------------------------------------------
+clk            in      0.0000   0.0000    3.00    0.15   --         d
+data_mem_data_in[0]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[1]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[2]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[3]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[4]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[5]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[6]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[7]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[8]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[9]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[10]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[11]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[12]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[13]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[14]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[15]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[16]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[17]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[18]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[19]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[20]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[21]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[22]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[23]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[24]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[25]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[26]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[27]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[28]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[29]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[30]
+               in      0.0000   0.0000    3.00    0.15   --         
+data_mem_data_in[31]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[0]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[1]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[2]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[3]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[4]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[5]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[6]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[7]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[8]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[9]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[10]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[11]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[12]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[13]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[14]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[15]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[16]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[17]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[18]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[19]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[20]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[21]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[22]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[23]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[24]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[25]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[26]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[27]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[28]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[29]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[30]
+               in      0.0000   0.0000    3.00    0.15   --         
+instruction_mem_data_in[31]
+               in      0.0000   0.0000    3.00    0.15   --         
+rst            in      0.0000   0.0000    3.00    0.15   --         
+data_mem_addr[0]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[1]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[2]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[3]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[4]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[5]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[6]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[7]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[8]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[9]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[10]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[11]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[12]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[13]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[14]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[15]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[16]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[17]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[18]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[19]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[20]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[21]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[22]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[23]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[24]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[25]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[26]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[27]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[28]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[29]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[30]
+               out     0.0500   0.0000   --      --      --         
+data_mem_addr[31]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[0]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[1]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[2]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[3]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[4]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[5]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[6]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[7]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[8]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[9]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[10]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[11]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[12]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[13]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[14]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[15]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[16]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[17]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[18]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[19]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[20]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[21]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[22]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[23]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[24]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[25]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[26]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[27]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[28]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[29]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[30]
+               out     0.0500   0.0000   --      --      --         
+data_mem_data_out[31]
+               out     0.0500   0.0000   --      --      --         
+data_mem_write_enable
+               out     0.0500   0.0000   --      --      --         
+
+1

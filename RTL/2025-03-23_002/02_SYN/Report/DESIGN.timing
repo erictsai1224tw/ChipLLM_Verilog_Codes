@@ -1,0 +1,83 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 3
+Design : DESIGN
+Version: T-2022.03
+Date   : Tue Mar 25 16:27:55 2025
+****************************************
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: top
+
+  Startpoint: i_req[6] (input port)
+  Endpoint: o_grant[0] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  DESIGN             enG5K                 fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  i_req[6] (in)                            0.00       0.00 f
+  U17/O (NR2)                              0.30       0.30 r
+  U15/O (ND2S)                             0.49       0.79 f
+  U25/O (MOAI1S)                           0.37       1.16 r
+  U26/O (OR2S)                             0.59       1.75 r
+  o_grant[0] (out)                         0.00       1.75 r
+  data arrival time                                   1.75
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+  Startpoint: i_req[6] (input port)
+  Endpoint: o_valid (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  DESIGN             enG5K                 fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  i_req[6] (in)                            0.00       0.00 f
+  U17/O (NR2)                              0.30       0.30 r
+  U15/O (ND2S)                             0.49       0.79 f
+  U18/O (NR2)                              0.25       1.04 r
+  U21/O (ND3S)                             0.55       1.59 f
+  o_valid (out)                            0.00       1.59 f
+  data arrival time                                   1.59
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+  Startpoint: i_req[6] (input port)
+  Endpoint: o_grant[1] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  DESIGN             enG5K                 fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  i_req[6] (in)                            0.00       0.00 f
+  U17/O (NR2)                              0.30       0.30 r
+  U15/O (ND2S)                             0.49       0.79 f
+  U27/O (OAI12HS)                          0.62       1.41 r
+  o_grant[1] (out)                         0.00       1.41 r
+  data arrival time                                   1.41
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

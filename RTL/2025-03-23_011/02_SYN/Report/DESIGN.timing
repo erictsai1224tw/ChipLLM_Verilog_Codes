@@ -1,0 +1,106 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 3
+Design : DESIGN
+Version: T-2022.03
+Date   : Tue Mar 25 16:49:30 2025
+****************************************
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: top
+
+  Startpoint: i_data[7] (input port)
+  Endpoint: o_valid (output port)
+  Path Group: default
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  DESIGN             enG5K                 fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  i_data[7] (in)                           0.00       0.00 f
+  U21/O (NR2)                              0.20       0.20 r
+  U20/O (ND2S)                             0.39       0.59 f
+  U25/O (OR3B2S)                           0.68       1.27 f
+  o_valid (out)                            0.00       1.27 f
+  data arrival time                                   1.27
+
+  max_delay                               10.00      10.00
+  output external delay                    0.00      10.00
+  data required time                                 10.00
+  -----------------------------------------------------------
+  data required time                                 10.00
+  data arrival time                                  -1.27
+  -----------------------------------------------------------
+  slack (MET)                                         8.73
+
+
+  Startpoint: i_data[4] (input port)
+  Endpoint: o_encoded[0]
+            (output port)
+  Path Group: default
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  DESIGN             enG5K                 fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  i_data[4] (in)                           0.00       0.00 f
+  U26/O (INV1S)                            0.08       0.08 r
+  U27/O (ND2S)                             0.08       0.16 f
+  U28/O (MOAI1S)                           0.28       0.44 r
+  U29/O (NR2)                              0.12       0.56 f
+  U31/O (OAI12HS)                          0.51       1.07 r
+  o_encoded[0] (out)                       0.00       1.07 r
+  data arrival time                                   1.07
+
+  max_delay                               10.00      10.00
+  output external delay                    0.00      10.00
+  data required time                                 10.00
+  -----------------------------------------------------------
+  data required time                                 10.00
+  data arrival time                                  -1.07
+  -----------------------------------------------------------
+  slack (MET)                                         8.93
+
+
+  Startpoint: i_data[5] (input port)
+  Endpoint: o_encoded[1]
+            (output port)
+  Path Group: default
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  DESIGN             enG5K                 fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  i_data[5] (in)                           0.00       0.00 f
+  U22/O (NR2)                              0.19       0.19 r
+  U32/O (INV1S)                            0.13       0.32 f
+  U33/O (OAI12HS)                          0.51       0.83 r
+  o_encoded[1] (out)                       0.00       0.83 r
+  data arrival time                                   0.83
+
+  max_delay                               10.00      10.00
+  output external delay                    0.00      10.00
+  data required time                                 10.00
+  -----------------------------------------------------------
+  data required time                                 10.00
+  data arrival time                                  -0.83
+  -----------------------------------------------------------
+  slack (MET)                                         9.17
+
+
+1

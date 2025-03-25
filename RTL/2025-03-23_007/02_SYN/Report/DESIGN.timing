@@ -1,0 +1,191 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 3
+Design : DESIGN
+Version: T-2022.03
+Date   : Tue Mar 25 17:37:40 2025
+****************************************
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: top
+
+  Startpoint: real_in[1] (input port)
+  Endpoint: imag_out[31]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  DESIGN             enG10K                fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  real_in[1] (in)                          0.00       0.00 r
+  U647/O (INV1S)                           1.11       1.11 f
+  U545/O (INV1S)                           1.54       2.65 r
+  U546/O (MOAI1S)                          0.82       3.47 r
+  U547/O (INV1S)                           1.73       5.20 f
+  U548/O (BUF1S)                           1.36       6.56 f
+  U549/O (NR2)                             1.44       7.99 r
+  U550/O (BUF1S)                           1.22       9.21 r
+  U2169/O (AOI22S)                         0.27       9.48 f
+  U2195/S (FA1S)                           0.75      10.24 r
+  U2208/S (FA1S)                           0.55      10.79 f
+  U2211/S (FA1S)                           0.52      11.31 f
+  U2293/CO (FA1S)                          0.55      11.86 f
+  U2291/CO (FA1S)                          0.50      12.36 f
+  U2289/CO (FA1S)                          0.50      12.86 f
+  U2287/CO (FA1S)                          0.50      13.36 f
+  U2285/CO (FA1S)                          0.50      13.86 f
+  U2283/CO (FA1S)                          0.50      14.37 f
+  U2281/CO (FA1S)                          0.50      14.87 f
+  U2279/CO (FA1S)                          0.50      15.37 f
+  U2277/CO (FA1S)                          0.50      15.87 f
+  U2275/CO (FA1S)                          0.50      16.37 f
+  U2273/CO (FA1S)                          0.50      16.87 f
+  U2271/CO (FA1S)                          0.50      17.37 f
+  U2269/CO (FA1S)                          0.50      17.87 f
+  U2267/CO (FA1S)                          0.50      18.37 f
+  U2265/CO (FA1S)                          0.50      18.88 f
+  U2263/CO (FA1S)                          0.50      19.38 f
+  U2261/CO (FA1S)                          0.50      19.88 f
+  U2259/CO (FA1S)                          0.50      20.38 f
+  U2257/CO (FA1S)                          0.50      20.88 f
+  U2255/CO (FA1S)                          0.50      21.38 f
+  U2253/CO (FA1S)                          0.50      21.88 f
+  U2251/CO (FA1S)                          0.50      22.38 f
+  U2249/CO (FA1S)                          0.50      22.89 f
+  U2247/CO (FA1S)                          0.50      23.39 f
+  U2245/CO (FA1S)                          0.52      23.91 f
+  U2243/CO (FA1S)                          0.55      24.45 f
+  U2241/O (MOAI1S)                         0.37      24.82 f
+  U2242/O (MOAI1S)                         1.20      26.02 r
+  imag_out[31] (out)                       0.00      26.02 r
+  data arrival time                                  26.02
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+  Startpoint: real_in[1] (input port)
+  Endpoint: real_out[31]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  DESIGN             enG10K                fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  real_in[1] (in)                          0.00       0.00 r
+  U647/O (INV1S)                           1.11       1.11 f
+  U545/O (INV1S)                           1.54       2.65 r
+  U546/O (MOAI1S)                          0.82       3.47 r
+  U547/O (INV1S)                           1.73       5.20 f
+  U548/O (BUF1S)                           1.36       6.56 f
+  U549/O (NR2)                             1.44       7.99 r
+  U1003/O (BUF1S)                          1.19       9.19 r
+  U1201/O (AOI22S)                         0.27       9.46 f
+  U1236/S (FA1S)                           0.75      10.21 r
+  U1250/S (FA1S)                           0.55      10.76 f
+  U1253/S (FA1S)                           0.52      11.28 f
+  U1344/CO (FA1S)                          0.55      11.83 f
+  U1342/CO (FA1S)                          0.50      12.33 f
+  U1340/CO (FA1S)                          0.50      12.83 f
+  U1338/CO (FA1S)                          0.50      13.34 f
+  U1336/CO (FA1S)                          0.50      13.84 f
+  U1334/CO (FA1S)                          0.50      14.34 f
+  U1332/CO (FA1S)                          0.50      14.84 f
+  U1330/CO (FA1S)                          0.50      15.34 f
+  U1328/CO (FA1S)                          0.50      15.84 f
+  U1326/CO (FA1S)                          0.50      16.34 f
+  U1324/CO (FA1S)                          0.50      16.84 f
+  U1322/CO (FA1S)                          0.50      17.35 f
+  U1320/CO (FA1S)                          0.50      17.85 f
+  U1318/CO (FA1S)                          0.50      18.35 f
+  U1316/CO (FA1S)                          0.50      18.85 f
+  U1314/CO (FA1S)                          0.50      19.35 f
+  U1312/CO (FA1S)                          0.50      19.85 f
+  U1310/CO (FA1S)                          0.50      20.35 f
+  U1308/CO (FA1S)                          0.50      20.85 f
+  U1306/CO (FA1S)                          0.50      21.35 f
+  U1304/CO (FA1S)                          0.50      21.86 f
+  U1302/CO (FA1S)                          0.50      22.36 f
+  U1300/CO (FA1S)                          0.50      22.86 f
+  U1298/CO (FA1S)                          0.50      23.36 f
+  U1296/CO (FA1S)                          0.52      23.88 f
+  U1354/CO (FA1S)                          0.55      24.43 f
+  U1356/O (MOAI1S)                         0.37      24.80 f
+  U1357/O (MOAI1S)                         1.20      26.00 r
+  real_out[31] (out)                       0.00      26.00 r
+  data arrival time                                  26.00
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+  Startpoint: real_in[1] (input port)
+  Endpoint: imag_out[30]
+            (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  DESIGN             enG10K                fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  real_in[1] (in)                          0.00       0.00 r
+  U647/O (INV1S)                           1.11       1.11 f
+  U545/O (INV1S)                           1.54       2.65 r
+  U546/O (MOAI1S)                          0.82       3.47 r
+  U547/O (INV1S)                           1.73       5.20 f
+  U548/O (BUF1S)                           1.36       6.56 f
+  U549/O (NR2)                             1.44       7.99 r
+  U550/O (BUF1S)                           1.22       9.21 r
+  U2169/O (AOI22S)                         0.27       9.48 f
+  U2195/S (FA1S)                           0.75      10.24 r
+  U2208/S (FA1S)                           0.55      10.79 f
+  U2211/S (FA1S)                           0.52      11.31 f
+  U2293/CO (FA1S)                          0.55      11.86 f
+  U2291/CO (FA1S)                          0.50      12.36 f
+  U2289/CO (FA1S)                          0.50      12.86 f
+  U2287/CO (FA1S)                          0.50      13.36 f
+  U2285/CO (FA1S)                          0.50      13.86 f
+  U2283/CO (FA1S)                          0.50      14.37 f
+  U2281/CO (FA1S)                          0.50      14.87 f
+  U2279/CO (FA1S)                          0.50      15.37 f
+  U2277/CO (FA1S)                          0.50      15.87 f
+  U2275/CO (FA1S)                          0.50      16.37 f
+  U2273/CO (FA1S)                          0.50      16.87 f
+  U2271/CO (FA1S)                          0.50      17.37 f
+  U2269/CO (FA1S)                          0.50      17.87 f
+  U2267/CO (FA1S)                          0.50      18.37 f
+  U2265/CO (FA1S)                          0.50      18.88 f
+  U2263/CO (FA1S)                          0.50      19.38 f
+  U2261/CO (FA1S)                          0.50      19.88 f
+  U2259/CO (FA1S)                          0.50      20.38 f
+  U2257/CO (FA1S)                          0.50      20.88 f
+  U2255/CO (FA1S)                          0.50      21.38 f
+  U2253/CO (FA1S)                          0.50      21.88 f
+  U2251/CO (FA1S)                          0.50      22.38 f
+  U2249/CO (FA1S)                          0.50      22.89 f
+  U2247/CO (FA1S)                          0.50      23.39 f
+  U2245/CO (FA1S)                          0.52      23.91 f
+  U2243/S (FA1S)                           0.67      24.57 r
+  U2244/O (INV1S)                          0.35      24.92 f
+  imag_out[30] (out)                       0.00      24.92 f
+  data arrival time                                  24.92
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

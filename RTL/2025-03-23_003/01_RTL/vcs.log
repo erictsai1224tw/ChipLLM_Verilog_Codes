@@ -1,0 +1,171 @@
+Command: vcs -timescale=1ns/1fs -j4 -sverilog +v2k -full64 -Mupdate -R -debug_access+all \
+-y /usr/cad/synopsys/synthesis/cur/dw/sim_ver/ +libext+.v -f filelist.f -o simv -l \
+vcs.log -P /usr/cad/synopsys/verdi/2019.06//share/PLI/VCS/linux64/novas.tab /usr/cad/synopsys/verdi/2019.06//share/PLI/VCS/linux64/pli.a \
++define+RTL +define+SAMPLE +notimingchecks
+*** Using c compiler gcc instead of cc ...
+                         Chronologic VCS (TM)
+         Version T-2022.06_Full64 -- Tue Mar 25 16:18:24 2025
+
+                    Copyright (c) 1991 - 2022 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Parsing design file 'TESTBED.v'
+Parsing included file 'PATTERN.v'.
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 42
+  Redeclaration of ANSI ports not allowed for 'clk', this will be an error in 
+  a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 43
+  Redeclaration of ANSI ports not allowed for 'rst', this will be an error in 
+  a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 46
+  Redeclaration of ANSI ports not allowed for 'awaddr_m', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 47
+  Redeclaration of ANSI ports not allowed for 'wdata_m', this will be an error
+  in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 48
+  Redeclaration of ANSI ports not allowed for 'wstrb_m', this will be an error
+  in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 49
+  Redeclaration of ANSI ports not allowed for 'awvalid_m', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 50
+  Redeclaration of ANSI ports not allowed for 'awready_m', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 51
+  Redeclaration of ANSI ports not allowed for 'wvalid_m', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 52
+  Redeclaration of ANSI ports not allowed for 'wready_m', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 53
+  Redeclaration of ANSI ports not allowed for 'bready_m', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 54
+  Redeclaration of ANSI ports not allowed for 'bvalid_m', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 55
+  Redeclaration of ANSI ports not allowed for 'bresp_m', this will be an error
+  in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 58
+  Redeclaration of ANSI ports not allowed for 'awaddr_s', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 59
+  Redeclaration of ANSI ports not allowed for 'wdata_s', this will be an error
+  in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 60
+  Redeclaration of ANSI ports not allowed for 'wstrb_s', this will be an error
+  in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 61
+  Redeclaration of ANSI ports not allowed for 'awvalid_s', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 62
+  Redeclaration of ANSI ports not allowed for 'awready_s', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 63
+  Redeclaration of ANSI ports not allowed for 'wvalid_s', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 64
+  Redeclaration of ANSI ports not allowed for 'wready_s', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 65
+  Redeclaration of ANSI ports not allowed for 'bready_s', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 66
+  Redeclaration of ANSI ports not allowed for 'bvalid_s', this will be an 
+  error in a future release
+
+
+Warning-[IPDASP] Identifier in ANSI port declaration
+PATTERN.v, 67
+  Redeclaration of ANSI ports not allowed for 'bresp_s', this will be an error
+  in a future release
+
+Back to file 'TESTBED.v'.
+Parsing included file 'DESIGN.v'.
+
+Error-[SE] Syntax error
+  Following verilog source has syntax error :
+  "DESIGN.v", 168: token is 'logic'
+      logic found_request = 0;
+           ^
+  SystemVerilog  keyword 'logic' is not expected to be used in this context.
+
+22 warnings
+1 error
+CPU time: .241 seconds to compile

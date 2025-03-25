@@ -1,0 +1,174 @@
+xrun(64): 22.03-s003: (c) Copyright 1995-2022 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	22.03-s003: Started on Mar 25, 2025 at 16:28:34 CST
+xrun
+	-f filelist.f
+		TESTBED.v
+	-mcl 4
+	-incdir /usr/cad/synopsys/synthesis/cur/dw/sim_ver/
+	-loadpli1 debpli:novas_pli_boot
+	-debug
+	-notimingchecks
+	-define RTL
+	-define CORRECT
+file: TESTBED.v
+  logic [WIDTH-1:0] i_data;
+        |
+xmvlog: *E,EXPLPA (PATTERN.v,95|8): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: PATTERN.v line 95, file: TESTBED.v line 16)
+  logic [WIDTH-1:0] i_data;
+              |
+xmvlog: *E,EXPLPA (PATTERN.v,95|14): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: PATTERN.v line 95, file: TESTBED.v line 16)
+  logic [WIDTH-1:0] i_data;
+                          |
+xmvlog: *E,EXPLPA (PATTERN.v,95|26): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: PATTERN.v line 95, file: TESTBED.v line 16)
+  logic [$clog2(WIDTH):0] o_encoded;
+        |
+xmvlog: *E,EXPLPA (PATTERN.v,96|8): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: PATTERN.v line 96, file: TESTBED.v line 16)
+  logic [$clog2(WIDTH):0] o_encoded;
+                      |
+xmvlog: *E,EXPSMC (PATTERN.v,96|22): expecting a semicolon (';') [12.1.2][7.1(IEEE)].
+(`include file: PATTERN.v line 96, file: TESTBED.v line 16)
+  logic [$clog2(WIDTH):0] o_encoded;
+                                   |
+xmvlog: *E,EXPLPA (PATTERN.v,96|35): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: PATTERN.v line 96, file: TESTBED.v line 16)
+  logic o_valid;
+               |
+xmvlog: *E,EXPLPA (PATTERN.v,97|15): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: PATTERN.v line 97, file: TESTBED.v line 16)
+  logic clk;
+           |
+xmvlog: *E,EXPLPA (PATTERN.v,109|11): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: PATTERN.v line 109, file: TESTBED.v line 16)
+    assert (o_encoded == 0 && o_valid == 0) else $error("Test 1 Failed!");
+                                               |
+xmvlog: *E,EXPSMC (PATTERN.v,121|47): expecting a semicolon (';') [10.2.2][10.2(IEEE)].
+(`include file: PATTERN.v line 121, file: TESTBED.v line 16)
+    assert (o_encoded == 0 && o_valid == 1) else $error("Test 2 Failed!");
+                                               |
+xmvlog: *E,EXPSMC (PATTERN.v,127|47): expecting a semicolon (';') [10.2.2][10.2(IEEE)].
+(`include file: PATTERN.v line 127, file: TESTBED.v line 16)
+    assert (o_encoded == WIDTH - 1 && o_valid == 1) else $error("Test 3 Failed!");
+                                                       |
+xmvlog: *E,EXPSMC (PATTERN.v,133|55): expecting a semicolon (';') [10.2.2][10.2(IEEE)].
+(`include file: PATTERN.v line 133, file: TESTBED.v line 16)
+    assert (o_encoded == 7 && o_valid == 1) else $error("Test 4 Failed!");
+                                               |
+xmvlog: *E,EXPSMC (PATTERN.v,139|47): expecting a semicolon (';') [10.2.2][10.2(IEEE)].
+(`include file: PATTERN.v line 139, file: TESTBED.v line 16)
+    assert (o_encoded == WIDTH - 1 && o_valid == 1) else $error("Test 5 Failed!");
+                                                       |
+xmvlog: *E,EXPSMC (PATTERN.v,145|55): expecting a semicolon (';') [10.2.2][10.2(IEEE)].
+(`include file: PATTERN.v line 145, file: TESTBED.v line 16)
+    defparam u_DESIGN.WIDTH = 4;
+           |
+xmvlog: *E,NOTSTT (PATTERN.v,149|11): expecting a statement [9(IEEE)].
+(`include file: PATTERN.v line 149, file: TESTBED.v line 16)
+    #10;
+    |
+xmvlog: *E,EXPENM (PATTERN.v,150|4): expecting the keyword 'endmodule' [12.1(IEEE)].
+(`include file: PATTERN.v line 150, file: TESTBED.v line 16)
+	module worklib.PATTERN:v
+		errors: 15, warnings: 0
+  input  logic [WIDTH-1:0] i_data,  // Input data vector
+               |
+xmvlog: *E,EXPCORP (DESIGN.v,32|15): Expecting a ',' or ')' [A.1.4(IEEE-2001)].
+(`include file: DESIGN.v line 32, file: TESTBED.v line 18)
+  input  logic [WIDTH-1:0] i_data,  // Input data vector
+               |
+xmvlog: *E,EXPCORP (DESIGN.v,32|15): Expecting a ',' or ')' [12.3.2(IEEE)].
+(`include file: DESIGN.v line 32, file: TESTBED.v line 18)
+  input  logic [WIDTH-1:0] i_data,  // Input data vector
+                     |
+xmvlog: *E,EXPCORP (DESIGN.v,32|21): Expecting a ',' or ')' [A.1.4(IEEE-2001)].
+(`include file: DESIGN.v line 32, file: TESTBED.v line 18)
+  input  logic [WIDTH-1:0] i_data,  // Input data vector
+                     |
+xmvlog: *E,EXPCORP (DESIGN.v,32|21): Expecting a ',' or ')' [12.3.2(IEEE)].
+(`include file: DESIGN.v line 32, file: TESTBED.v line 18)
+  output logic [$clog2(WIDTH):0] o_encoded, // Encoded output (log2(WIDTH) bits)
+               |
+xmvlog: *E,EXPCORP (DESIGN.v,33|15): Expecting a ',' or ')' [A.1.4(IEEE-2001)].
+(`include file: DESIGN.v line 33, file: TESTBED.v line 18)
+  output logic [$clog2(WIDTH):0] o_encoded, // Encoded output (log2(WIDTH) bits)
+               |
+xmvlog: *E,EXPCORP (DESIGN.v,33|15): Expecting a ',' or ')' [12.3.2(IEEE)].
+(`include file: DESIGN.v line 33, file: TESTBED.v line 18)
+  output logic [$clog2(WIDTH):0] o_encoded, // Encoded output (log2(WIDTH) bits)
+                             |
+xmvlog: *E,EXPSMC (DESIGN.v,33|29): expecting a semicolon (';') [12.1(IEEE)].
+(`include file: DESIGN.v line 33, file: TESTBED.v line 18)
+  always_comb begin
+                  |
+xmvlog: *E,EXPLPA (DESIGN.v,40|18): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: DESIGN.v line 40, file: TESTBED.v line 18)
+    o_valid = 1'b0;
+            |
+xmvlog: *E,EXPLPA (DESIGN.v,41|12): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: DESIGN.v line 41, file: TESTBED.v line 18)
+    o_encoded = 0; // Default value if no input is high
+              |
+xmvlog: *E,EXPLPA (DESIGN.v,42|14): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: DESIGN.v line 42, file: TESTBED.v line 18)
+    for (int i = WIDTH - 1; i >= 0; i--) begin
+             |
+xmvlog: *E,MISEXX (DESIGN.v,44|13): expecting an '=' or '<=' sign in an assignment [9.2(IEEE)].
+(`include file: DESIGN.v line 44, file: TESTBED.v line 18)
+    for (int i = WIDTH - 1; i >= 0; i--) begin
+                                      |
+xmvlog: *E,USESVSW (DESIGN.v,44|38): pre-post-assignment operator:  Use -sv switch to enable this SystemVerilog construct.
+(`include file: DESIGN.v line 44, file: TESTBED.v line 18)
+        o_valid = 1'b1;
+                |
+xmvlog: *E,EXPLPA (DESIGN.v,46|16): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: DESIGN.v line 46, file: TESTBED.v line 18)
+        o_encoded = i;
+                  |
+xmvlog: *E,EXPLPA (DESIGN.v,47|18): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: DESIGN.v line 47, file: TESTBED.v line 18)
+        o_encoded = i;
+                     |
+xmvlog: *E,EXPLPA (DESIGN.v,47|21): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: DESIGN.v line 47, file: TESTBED.v line 18)
+        break; // Exit the loop after finding the highest priority
+             |
+xmvlog: *E,EXPLPA (DESIGN.v,48|13): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+(`include file: DESIGN.v line 48, file: TESTBED.v line 18)
+  end
+    |
+xmvlog: *E,EXPENM (DESIGN.v,51|4): expecting the keyword 'endmodule' [12.1(IEEE)].
+(`include file: DESIGN.v line 51, file: TESTBED.v line 18)
+	module worklib.DESIGN:v
+		errors: 17, warnings: 0
+logic [WIDTH-1:0] i_data;
+      |
+xmvlog: *E,EXPLPA (TESTBED.v,28|6): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+logic [WIDTH-1:0] i_data;
+            |
+xmvlog: *E,EXPLPA (TESTBED.v,28|12): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+logic [WIDTH-1:0] i_data;
+                        |
+xmvlog: *E,EXPLPA (TESTBED.v,28|24): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+logic [$clog2(WIDTH)-1:0] o_encoded;
+      |
+xmvlog: *E,EXPLPA (TESTBED.v,29|6): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+logic [$clog2(WIDTH)-1:0] o_encoded;
+                    |
+xmvlog: *E,EXPSMC (TESTBED.v,29|20): expecting a semicolon (';') [12.1.2][7.1(IEEE)].
+logic [$clog2(WIDTH)-1:0] o_encoded;
+                                   |
+xmvlog: *E,EXPLPA (TESTBED.v,29|35): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+logic o_valid;
+             |
+xmvlog: *E,EXPLPA (TESTBED.v,30|13): expecting a left parenthesis ('(') [12.1.2][7.1(IEEE)].
+	module worklib.TESTBED:v
+		errors: 7, warnings: 0
+xmvlog: *W,SPDUSD: Include directory /usr/cad/synopsys/synthesis/cur/dw/sim_ver/ given but not used.
+xmvlog: *W,NOTOPL: no top-level unit found, must have recursive instances.
+	Total errors/warnings found outside modules and primitives:
+		errors: 0, warnings: 2
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	22.03-s003: Exiting on Mar 25, 2025 at 16:28:35 CST  (total: 00:00:01)

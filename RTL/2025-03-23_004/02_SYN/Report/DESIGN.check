@@ -1,0 +1,38 @@
+ 
+****************************************
+check_design summary:
+Version:     T-2022.03
+Date:        Tue Mar 25 16:28:55 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     24
+    Unconnected ports (LINT-28)                                    24
+--------------------------------------------------------------------------------
+
+Warning: In design 'DESIGN', port 'rst' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[31]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[30]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[29]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[28]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[27]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[26]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[25]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[19]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[18]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[17]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[16]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[15]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[14]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[13]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[12]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[6]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[5]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[4]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[3]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[2]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[1]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'instruction_mem_data_in[0]' is not connected to any nets. (LINT-28)
+Warning: In design 'DESIGN', port 'data_mem_write_enable' is not connected to any nets. (LINT-28)
+1
